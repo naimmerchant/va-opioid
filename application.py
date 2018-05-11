@@ -9,8 +9,11 @@ import base64
 
 
 # Launch the application:
-app = dash.Dash(__name__)
-application=app.server
+
+app = dash.Dash()
+server = app.server
+app.config.suppress_callback_exceptions=True
+
 
 # Data cleaning: Years
 years=pd.read_csv('https://query.data.world/s/yzwhxgzdkug4f7gbu3tasyjelyww7g')
@@ -98,7 +101,7 @@ app.layout = html.Div([
 
 
 
+app.css.append_css({'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'})
 
-# Add the server clause:
 if __name__ == '__main__':
-    application.run(debug=True)
+    app.run_server()
