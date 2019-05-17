@@ -23,7 +23,7 @@ years.columns='year','rate'
 years['rate']=round(years['rate'],1)
 
 # Data cleaning: Counties
-df=pd.read_csv('https://query.data.world/s/k3p77vroa3qc3a3wmer6jwfwahbwvw')
+df=pd.read_csv('https://data.world/naimmerchant/virgiasealevelv1/workspace/file?filename=va-climate-test.csv')
 df=df[pd.to_numeric(df['rate_2016'], errors='coerce').notnull()]
 df['rate_2016']=round(df['rate_2016'].astype(float),1)
 df['locality']=df['locality'].str.split(' County').str[0]
